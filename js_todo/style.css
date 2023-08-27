@@ -135,7 +135,7 @@ button:focus-visible {
     background-color: #007BFF;
 }
 
-.task__completed {
+.task__completed label{
     color : #6d6d6d;
     text-decoration: line-through;
 }
@@ -148,10 +148,6 @@ button:focus-visible {
     color : #007BFF;
 }
 
-.todo__cta {
-    display: none;
+.todo__checkbox__label {
 }
 
-.todo__list__item:hover .todo__cta{
-    display: flex;
-}

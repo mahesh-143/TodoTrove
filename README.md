@@ -12,7 +12,7 @@ Here's a list of the currently available "To-Do" applications:
 
 ### Frontend
 
-1. [Vanila JS](/js_todo) (WIP)
+1. [Vanila JS](/js_todo)
 2. Typescript (Comming soon!)
 3. React JS (Comming soon!)
 4. Redux+React (Comming soon!)

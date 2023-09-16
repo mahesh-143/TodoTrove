@@ -1,0 +1,151 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1E1E1E;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+main{
+    max-width: 700px;
+    padding: 16px;
+    margin: auto;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.flex{
+    display: flex;
+    gap : 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color  : white;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #FFFFFF;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.button--primary {
+    background-color:  #007BFF;
+}
+
+.button--secondary {
+    background-color: #333333;
+}
+
+.button--destructive {
+    background-color: #FF3B30;
+}
+
+.todo__input {
+    border-radius : 8px;
+    background-color: #242424;
+    color : inherit;
+    width: 100%;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+}
+
+#todo__list {
+   max-height: 350px;
+   background-color: #242424;
+   overflow: hidden scroll ;
+}
+
+#todo__list::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+#todo__list::-webkit-scrollbar-thumb {
+  background-color: #3d3d3d;
+}
+
+#todo__list::-webkit-scrollbar-corner {
+  background-color: #3d3d3d;
+}
+
+.todo__list__item {
+    padding: 0.5em;
+    border-radius : 8px;
+}
+
+.todo__checkbox {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #333333;
+    cursor: pointer;
+    margin-right: 5px;
+    outline: none;
+    position: relative;
+}
+
+.todo__checkbox::before {
+    content: '\2713'; /* Unicode character for checkmark */
+    font-size: 1.4rem;
+    color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo__checkbox:checked::before {
+    color: #FFFFFF;
+}
+
+.todo__checkbox:checked{
+    background-color: #007BFF;
+}
+
+.task__completed label{
+    color : #6d6d6d;
+    text-decoration: line-through;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer__p {
+    color : #6d6d6d;
+    font-size: 14px;
+}

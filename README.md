@@ -14,13 +14,13 @@ Here's a list of the currently available "To-Do" applications:
 
 1. [Vanila JS](/js_todo)
 2. Typescript (Comming soon!)
-3. React JS (Comming soon!)
+3. [React JS](/react-todo) (WIP)
 4. Redux+React (Comming soon!)
 
 ### Fullstack
 
 1. MERN Stack (Comming soon!)
-2. Next JS (Coming soon!)
+2. Next JS (Comming soon!)
 
 ## Contributing
 

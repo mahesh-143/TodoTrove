@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsPencil, BsTrash3Fill } from "react-icons/bs";
 
 type Todo = {
@@ -8,10 +8,20 @@ type Todo = {
 };
 
 function App() {
-  const [taskList, setTaskList] = useState<Todo[]>([]);
+  const [taskList, setTaskList] = useState<Todo[]>(() => {
+    const localValue = localStorage.getItem("tasks");
+    if (localValue == null) return [];
+    return JSON.parse(localValue);
+  });
+
   const [newTask, setNewTask] = useState<string>("");
 
-  const addTask = () => {
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+  }, [taskList]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (newTask.trim().length === 0) {
       alert("Please enter a value!");
       return;
@@ -21,7 +31,6 @@ function App() {
       task: newTask,
       isCompleted: false,
     };
-
     setTaskList([task, ...taskList]);
     setNewTask("");
   };
@@ -39,11 +48,22 @@ function App() {
     setTaskList([...taskList]);
   };
 
+  const handleEdit = (task: Todo) => {
+    const editedTaskText = prompt("Edit task:", task.task);
+
+    if (editedTaskText !== null) {
+      const updatedTaskList = taskList.map((t) =>
+        t.id === task.id ? { ...t, task: editedTaskText } : t,
+      );
+      setTaskList(updatedTaskList);
+    }
+  };
+
   return (
     <>
       <main>
         <h1 className="title">My Todo App</h1>
-        <div className="flex">
+        <form className="flex" onSubmit={handleSubmit}>
           <input
             id="taskInput"
             className="todo__input"
@@ -52,10 +72,8 @@ function App() {
             type="text"
             placeholder="Enter a new task"
           />
-          <button className="button button--primary" onClick={addTask}>
-            Add
-          </button>
-        </div>
+          <button className="button button--primary">Add</button>
+        </form>
         <ul id="todo__list">
           {taskList.map((task) => (
             <li
@@ -81,7 +99,11 @@ function App() {
                 </label>
               </div>
               <div className="todo__cta flex">
-                <button className="button button--secondary" data-action="edit">
+                <button
+                  className="button button--secondary"
+                  data-action="edit"
+                  onClick={() => handleEdit(task)}
+                >
                   <BsPencil />
                 </button>
                 <button

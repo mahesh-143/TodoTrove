@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BsPencil, BsTrash3Fill } from "react-icons/bs";
+import { TodoList } from "./components/TodoList";
 
 type Todo = {
   id: number;
@@ -74,48 +74,12 @@ function App() {
           />
           <button className="button button--primary">Add</button>
         </form>
-        <ul id="todo__list">
-          {taskList.map((task) => (
-            <li
-              className={`${
-                task.isCompleted
-                  ? "todo_list__item flex task__completed"
-                  : "todo_list__item flex"
-              }`}
-              key={task.id}
-            >
-              <div className="flex">
-                <input
-                  type="checkbox"
-                  className="todo__checkbox"
-                  checked={task.isCompleted}
-                  onChange={() => toggleCompleted(task)}
-                />
-                <label
-                  htmlFor="todoCheckBox"
-                  className="todo__checkbox__label "
-                >
-                  {task.task}
-                </label>
-              </div>
-              <div className="todo__cta flex">
-                <button
-                  className="button button--secondary"
-                  data-action="edit"
-                  onClick={() => handleEdit(task)}
-                >
-                  <BsPencil />
-                </button>
-                <button
-                  className="button button--destructive"
-                  onClick={() => deleteTask(task.id)}
-                >
-                  <BsTrash3Fill />
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <TodoList
+          taskList={taskList}
+          toggleCompleted={toggleCompleted}
+          deleteTask={deleteTask}
+          handleEdit={handleEdit}
+        />
       </main>
       <footer className="footer">
         <p className="footer__p">To-Do app made with React JS!</p>

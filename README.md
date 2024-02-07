@@ -14,7 +14,7 @@ Here's a list of the currently available "To-Do" applications:
 
 1. [Vanila JS](/js_todo)
 2. Typescript (Comming soon!)
-3. [React JS](/react-todo)
+3. [React JS](/react_todo)
 4. Redux+React (Comming soon!)
 
 ### Fullstack
